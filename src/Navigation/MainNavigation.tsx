@@ -1,7 +1,7 @@
 import React from 'react';
 import { BrowserRouter as Router, Switch, Route, Redirect } from 'react-router-dom';
-import Auth from '../Auth/components/Auth';
 import PrivateRoute from './PrivateRoute';
+import AuthContainer from '../Auth/containers/AuthContainer';
 
 const MainNavigation = () => {
   return (
@@ -11,7 +11,7 @@ const MainNavigation = () => {
           <div>LOL</div>
         </PrivateRoute>
         <Route path="/auth">
-          <Auth></Auth>
+          <AuthContainer></AuthContainer>
         </Route>
         <Redirect path="/" to="/app" exact></Redirect>
       </Switch>

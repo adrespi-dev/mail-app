@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="73" height="26" viewBox="0 0 73 26">
+  <g id="Logo" transform="translate(-171 -187)">
+    <text id="Mailer" transform="translate(171 208)" fill="#5850ec" font-size="18" font-family="OpenSansCondensed-Bold, Open Sans" font-weight="700"><tspan x="0" y="0">Mailer</tspan></text>
+    <rect id="Rectángulo_26" data-name="Rectángulo 26" width="24" height="24" rx="4" transform="translate(220 189)" fill="#5850ec"/>
+    <text id="J" transform="translate(226 206)" fill="#fff" font-size="18" font-family="OpenSansCondensed-Bold, Open Sans" font-weight="700" letter-spacing="-0.141em"><tspan x="0" y="0">J</tspan></text>
+    <text id="S" transform="translate(232 208)" fill="#fff" font-size="18" font-family="OpenSansCondensed-Bold, Open Sans" font-weight="700"><tspan x="0" y="0">S</tspan></text>
+  </g>
+</svg>

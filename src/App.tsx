@@ -3,14 +3,16 @@ import { Provider } from 'react-redux';
 
 import MainNavigation from './Navigation/MainNavigation';
 import configureStore from './Redux/store';
+import AppTheme from './ThemeApp';
 
 const App = () => {
   return (
-    <div className="App">
-      <Provider store={configureStore()}>
+    <Provider store={configureStore()}>
+      <AppTheme>
         <MainNavigation></MainNavigation>
-      </Provider>
-    </div>
+        {/* </div> */}
+      </AppTheme>
+    </Provider>
   );
 };
 
