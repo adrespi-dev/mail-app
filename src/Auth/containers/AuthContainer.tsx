@@ -1,12 +1,17 @@
 import { connect } from 'react-redux';
-import Auth from '../components/Auth';
+import AuthGuard from '../components/AuthGuard';
+import { signIn } from '../actionCreators';
 
 const mapStateToProps = (state: any) => {
-  const { isAuthenticated } = state;
+  const { currentUser, isAuthLoading } = state;
   return {
-    isAuthenticated,
+    isLoading: isAuthLoading,
+    currentUser,
   };
 };
-const AuthContainer = connect(mapStateToProps)(Auth);
+
+const AuthContainer = connect(mapStateToProps, {
+  signIn,
+})(AuthGuard);
 
 export default AuthContainer;

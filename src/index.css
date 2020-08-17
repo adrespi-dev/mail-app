@@ -19,3 +19,32 @@ body {
   display: flex;
   flex-direction: column;
 }
+
+* {
+  box-sizing: border-box;
+}
+
+button {
+  cursor: pointer;
+  border-color: transparent;
+  background: transparent;
+  font-family: inherit;
+  color: inherit;
+}
+
+button:focus {
+  outline: none;
+}
+
+input {
+  font-family: inherit;
+  color: inherit;
+}
+
+input:focus {
+  outline: none;
+}
+
+.w-100 {
+  width: 100%;
+}

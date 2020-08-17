@@ -1,14 +1,13 @@
 import React from 'react';
 import { Route, Redirect } from 'react-router-dom';
 import { connect } from 'react-redux';
-// import mockAuth from '../Auth/authService';
 
-const PrivateRoute: React.FC<any> = ({ children, rest, isAuthenticated }) => {
+const PrivateRoute: React.FC<any> = ({ children, rest, currentUser }) => {
   return (
     <Route
       {...rest}
       render={({ location }) =>
-        isAuthenticated ? (
+        currentUser ? (
           children
         ) : (
           <Redirect
@@ -24,9 +23,9 @@ const PrivateRoute: React.FC<any> = ({ children, rest, isAuthenticated }) => {
 };
 
 const mapStateToPros = (state: any) => {
-  const { isAuthenticated } = state;
+  const { currentUser } = state;
   return {
-    isAuthenticated,
+    currentUser,
   };
 };
 const PrivateRouteContainer = connect(mapStateToPros)(PrivateRoute);
