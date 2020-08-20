@@ -6,20 +6,23 @@ import User1 from '../../assets/img/users/User1.png';
 import LoginInput from './LoginInput';
 import Button from '../../Common/components/Button';
 import Loader from '../../Common/components/Loader';
-import Dropdown from '../../Common/components/Dropdown/Dropdown';
 import Language from '../../Common/models/Language';
-import LANGUAJES from '../../Common/data/languages';
 import { useTranslation } from 'react-i18next';
+import LanguageDropdownContainer from '../../Common/containers/LanguageDropdownContainer';
+import ThemeDropdownContainer from '../../Common/containers/ThemeDropdownContainer';
+import { isDarkTheme } from '../../Common/utils';
 
 type Props = {
   isLoading: boolean;
+  language: Language;
+  setLanguage: (language: string) => void;
   signIn: () => void;
 };
 
 const AuthContainer = Styled('div', ({ theme }) => ({
   height: '100%',
   width: '100%',
-  background: theme.auth.bodyBg,
+  background: theme.colors.auth.bodyBg,
   display: 'flex',
   alignItems: 'center',
   justifyContent: 'center',
@@ -28,8 +31,7 @@ const AuthContainer = Styled('div', ({ theme }) => ({
 const AuthPanel = Styled('div', ({ theme }) => ({
   position: 'relative',
   padding: '1.25rem',
-  paddingTop: '3.25rem',
-  backgroundColor: theme.auth.panelBg,
+  backgroundColor: theme.colors.auth.panelBg,
   width: '100%',
   maxWidth: '420px',
   boxShadow: ` 0 12px 18px 2px rgba(34,0,51,.04),
@@ -41,7 +43,8 @@ const AuthPanel = Styled('div', ({ theme }) => ({
 const TopRow = Styled('div', ({ theme }) => ({
   display: 'flex',
   alignItems: 'center',
-  justifyContent: 'flex-end',
+  // justifyContent: 'flex-end',
+  justifyContent: 'space-between',
   marginBottom: '2.2rem',
 }));
 
@@ -51,6 +54,10 @@ const Logo = Styled(_Logo, ({ theme }) => ({
   display: 'block',
   margin: '0 auto',
   marginBottom: '3.25rem',
+
+  '#logo_mailer': {
+    color: isDarkTheme(theme) ? theme.colors.text : theme.colors.primary,
+  },
 }));
 
 const AvatarUser = Styled('img', ({ theme }) => ({
@@ -63,7 +70,7 @@ const AvatarUser = Styled('img', ({ theme }) => ({
 
 const AvatarName = Styled('div', ({ theme }) => ({
   textAlign: 'center',
-  color: theme.colors.primary,
+  color: isDarkTheme(theme) ? theme.colors.text : theme.colors.primary,
   fontSize: theme.fontSizes.large,
   fontWeight: 700,
 }));
@@ -96,12 +103,8 @@ const Auth: React.FC<Props> = ({ signIn, isLoading }) => {
     <AuthContainer>
       <AuthPanel>
         <TopRow>
-          <Dropdown
-            value="ES"
-            valueField="shortName"
-            items={LANGUAJES}
-            headerTemplate={(item: Language) => <div>{item.name}</div>}
-          ></Dropdown>
+          <ThemeDropdownContainer />
+          <LanguageDropdownContainer />
         </TopRow>
         <Logo></Logo>
         <AvatarUser src={User1}></AvatarUser>

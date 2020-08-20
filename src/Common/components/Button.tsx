@@ -1,6 +1,7 @@
 import React, { ButtonHTMLAttributes } from 'react';
 import Styled from '../Styled';
 import classNames from 'classnames';
+import { isDarkTheme } from '../utils';
 
 interface Props extends ButtonHTMLAttributes<HTMLButtonElement> {
   isLoading?: boolean;
@@ -33,7 +34,7 @@ const StyledButton = Styled('button', ({ theme, color, size }) => ({
     borderColor: 'transparent',
     backgroundColor: 'rgba(0, 0, 0, 0.15)',
     boxShadow: 'none',
-    color: 'rgba(0, 0, 0, 0.47)',
+    color: isDarkTheme(theme) ? 'rgb(255 255 255 / 42%)' : 'rgba(0, 0, 0, 0.47)',
   },
 
   '&.btn-loading': {

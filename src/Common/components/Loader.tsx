@@ -20,7 +20,7 @@ const Loader: React.FC<Props> = (props) => {
   const { size } = props;
 
   const Animated = Styled(
-    (styleProps) => <LoaderSvg height={size} width={size} {...styleProps} {...props} />,
+    (styleProps: any) => <LoaderSvg height={size} width={size} {...styleProps} {...props} />,
     () => ({
       animation: `${loaderAnim} 0.9s linear infinite`,
     }),
