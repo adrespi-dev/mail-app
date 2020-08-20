@@ -9,6 +9,7 @@ import Loader from '../../Common/components/Loader';
 import Dropdown from '../../Common/components/Dropdown/Dropdown';
 import Language from '../../Common/models/Language';
 import LANGUAJES from '../../Common/data/languages';
+import { useTranslation } from 'react-i18next';
 
 type Props = {
   isLoading: boolean;
@@ -81,6 +82,7 @@ const Bird = Styled(_Bird, ({ theme }) => ({
 }));
 
 const Auth: React.FC<Props> = ({ signIn, isLoading }) => {
+  const { t } = useTranslation();
   const [isValid, setValid] = useState(false);
 
   const handleSubmit = (e: any) => {
@@ -106,7 +108,7 @@ const Auth: React.FC<Props> = ({ signIn, isLoading }) => {
         <AvatarName>Antonela Reyna</AvatarName>
         <AvatarEmail>antitoreyna@gmail.com</AvatarEmail>
         <form onSubmit={handleSubmit}>
-          <LoginInput onValidationChanged={setValid} placeholder="Password..." />
+          <LoginInput onValidationChanged={setValid} placeholder={`${t('Password')}...`} />
           <Button
             className="w-100"
             isLoading={isLoading}
