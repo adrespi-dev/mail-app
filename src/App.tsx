@@ -3,15 +3,15 @@ import { Provider } from 'react-redux';
 
 import MainNavigation from './Navigation/MainNavigation';
 import configureStore from './Redux/store';
-import AppTheme from './ThemeApp';
+// import AppTheme from './ThemeApp';
+import ThemeAppContainer from './ThemeAppContainer';
 
 const App = () => {
   return (
     <Provider store={configureStore()}>
-      <AppTheme>
+      <ThemeAppContainer>
         <MainNavigation></MainNavigation>
-        {/* </div> */}
-      </AppTheme>
+      </ThemeAppContainer>
     </Provider>
   );
 };

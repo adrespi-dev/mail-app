@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { CheckCircle as _CheckCircle } from 'react-feather';
 import Styled from '../../Common/Styled';
 import classNames from 'classnames';
+import { isDarkTheme } from '../../Common/utils';
 
 type Props = {
   placeholder?: string;
@@ -18,12 +19,15 @@ const Container = Styled('div', ({ theme }) => ({
   borderRadius: 4,
   fontSize: theme.fontSizes.standard,
   transition: 'all 0.2s ease-in',
-  boxShadow: `0 0 0 2px ${theme.colors.border} inset,
-              0 0 0 1px #e0e0e0 inset`,
+  boxShadow: isDarkTheme(theme)
+    ? `0 0 0 2px ${theme.colors.border} inset`
+    : `0 0 0 2px ${theme.colors.border} inset,
+       0 0 0 1px #e0e0e0 inset`,
   input: {
     width: '100%',
     height: '100%',
     border: 0,
+    backgroundColor: 'transparent',
   },
   '&.filled': {
     '.placeholder': {
@@ -51,7 +55,7 @@ const Container = Styled('div', ({ theme }) => ({
 const Placeholder = Styled('div', ({ theme }) => ({
   position: 'absolute',
   top: '15px',
-  color: theme.colors.altText,
+  color: !isDarkTheme(theme) ? theme.colors.altText : theme.colors.altText,
   left: '18px;',
   pointerEvents: 'none',
 }));
